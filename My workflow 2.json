@@ -1,0 +1,141 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1KdHedKM61HoJdrm8tNX3NZd5x_N77HYy7xhb9rgrd2k",
+          "mode": "list",
+          "cachedResultName": "Untitled form (Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1KdHedKM61HoJdrm8tNX3NZd5x_N77HYy7xhb9rgrd2k/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 328017092,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1KdHedKM61HoJdrm8tNX3NZd5x_N77HYy7xhb9rgrd2k/edit#gid=328017092"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8b3f73bc-c860-41ef-9162-644e5b4c7ba1",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "AIztiUyxO206HJZs",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json['Email Address'] }} , {{ $json.Email }}",
+        "subject": "={{ $json.Name }}, Thankyou for participating",
+        "message": "=Thanks for feedback, Thankyou for your time ,would you like to get notification on this no.  {{ $json['Phone no.'] }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "8ea40552-ab33-4239-972c-9a0828440c4d",
+      "name": "Send a message",
+      "webhookId": "5d447d4b-4eae-4148-9716-565e0e859104",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "MpK0d3fRifNljm7T",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        64,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "ca887c45-88eb-41a8-ae3f-f0342d5de901",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        64,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "8da12b70-9caa-4b6f-b97a-2f8bac11b901",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        64,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "125304b0-609b-4b04-a5dc-678f633ad63d",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        64,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "50d92170-bc76-4310-990b-5cb51b601b42",
+      "name": "Sticky Note3"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "ea237792-ac1a-40e8-a28a-502e74f27d11",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "5acd9921d767a3eeb984e070a1199125bc3160c436aac4c2138a9db311f8a193"
+  },
+  "id": "7KmUzKpuAJ01nTl3",
+  "tags": []
+}
